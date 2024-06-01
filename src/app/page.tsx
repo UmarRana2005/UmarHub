@@ -1,3 +1,4 @@
+'use client'
 import NavBar from "@/components/NavBar";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 
