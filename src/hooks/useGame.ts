@@ -1,11 +1,17 @@
 import apiClient from "@/services/api-client";
 import { CanceledError } from "axios";
+import { StyledString } from "next/dist/build/swc";
 import { useEffect, useState } from "react";
-
+export interface Platforms{
+  id:number;
+  name:string;
+  slug:string;
+}
 export interface Game {
     id: number;
     name: string;
     background_image:string;
+    parent_platforms:{platform:Platforms}[];
   }
   interface FetchResponse {
     count: number;
