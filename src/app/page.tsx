@@ -1,5 +1,6 @@
 'use client'
 import GameGrid from "@/components/GameGrid";
+import GenersList from "@/components/GenersList";
 import NavBar from "@/components/NavBar";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 
@@ -14,7 +15,9 @@ export default function Home() {
         <NavBar/>
         </GridItem>
       <Show above="lg">
-      <GridItem area='aside'>Aside</GridItem>
+      <GridItem area='aside'>
+        <GenersList/>
+      </GridItem>
       </Show>
       <GridItem area='main'>
         <GameGrid/>
