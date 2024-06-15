@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 interface Geners{
     id:number,
     name:string,
+    image_background:string,
 }
 interface FetchResponseGeners{
     count:number,
