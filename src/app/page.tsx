@@ -2,6 +2,7 @@
 import GameGrid from "@/components/GameGrid";
 import GenersList from "@/components/GenersList";
 import NavBar from "@/components/NavBar";
+import PlatformSelector from "@/components/PlatformSelector";
 import { Geners } from "@/hooks/useGeners";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
@@ -28,6 +29,7 @@ export default function Home() {
       </GridItem>
       </Show>
       <GridItem area='main'>
+        <PlatformSelector/>
         <GameGrid selectedGener={selectedGener}/>
       </GridItem>
     </Grid>
