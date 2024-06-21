@@ -24,7 +24,7 @@ export default function Home() {
         </GridItem>
       <Show above="lg">
       <GridItem area='aside' paddingX={4}>
-        <GenersList SelectedGener={(gener)=>setSelectedGener(gener)}/>
+        <GenersList onSelectedGener={selectedGener} SelectedGener={(gener)=>setSelectedGener(gener)}/>
       </GridItem>
       </Show>
       <GridItem area='main'>

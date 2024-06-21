@@ -2,9 +2,10 @@ import useGeners, { Geners } from '@/hooks/useGeners'
 import getCropImage from '@/services/image-crop'
 import { HStack, List, ListItem, Image, Text, Spinner, Button } from '@chakra-ui/react'
 interface Props{
-  SelectedGener: (gener:Geners)=> void
+  SelectedGener: (gener:Geners)=> void,
+  onSelectedGener:Geners|null,
 }
-const GenersList = ({SelectedGener}:Props) => {
+const GenersList = ({SelectedGener,onSelectedGener}:Props) => {
     const {data,error,isLoading} = useGeners()
      if (isLoading) return <Spinner boxSize='50px'/>
     return (
@@ -15,7 +16,7 @@ const GenersList = ({SelectedGener}:Props) => {
           <ListItem key={gener.id} paddingY={2}>
           <HStack>
             <Image boxSize='32px' borderRadius={8} src={getCropImage(gener.image_background)}/>
-            <Button variant='link' onClick={()=>SelectedGener(gener)} fontSize='lg'>{gener.name}</Button>
+            <Button fontWeight={gener.id === onSelectedGener?.id ? 'bold':'normal'} variant='link' onClick={()=>SelectedGener(gener)} fontSize='lg'>{gener.name}</Button>
           </HStack>
           </ListItem>)}
     </List>
