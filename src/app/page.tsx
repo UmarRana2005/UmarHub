@@ -3,12 +3,14 @@ import GameGrid from "@/components/GameGrid";
 import GenersList from "@/components/GenersList";
 import NavBar from "@/components/NavBar";
 import PlatformSelector from "@/components/PlatformSelector";
+import { Platforms } from "@/hooks/useGame";
 import { Geners } from "@/hooks/useGeners";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Home() {
  const [selectedGener,setSelectedGener] =useState<Geners|null>(null)
+ const [selectedPlatform,setSelectedPlatform] =useState<Platforms|null>(null)
   return(
     <>
     <Grid templateAreas={{
@@ -29,8 +31,8 @@ export default function Home() {
       </GridItem>
       </Show>
       <GridItem area='main'>
-        <PlatformSelector/>
-        <GameGrid selectedGener={selectedGener}/>
+        <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={(platform)=> setSelectedPlatform(platform)} />
+        <GameGrid selectedPlatform={selectedPlatform} selectedGener={selectedGener}/>
       </GridItem>
     </Grid>
     </>
