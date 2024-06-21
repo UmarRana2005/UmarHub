@@ -2,9 +2,12 @@
 import GameGrid from "@/components/GameGrid";
 import GenersList from "@/components/GenersList";
 import NavBar from "@/components/NavBar";
+import { Geners } from "@/hooks/useGeners";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Home() {
+ const [selectedGener,setSelectedGener] =useState<Geners|null>(null)
   return(
     <>
     <Grid templateAreas={{
@@ -21,11 +24,11 @@ export default function Home() {
         </GridItem>
       <Show above="lg">
       <GridItem area='aside' paddingX={4}>
-        <GenersList/>
+        <GenersList SelectedGener={(gener)=>setSelectedGener(gener)}/>
       </GridItem>
       </Show>
       <GridItem area='main'>
-        <GameGrid/>
+        <GameGrid selectedGener={selectedGener}/>
       </GridItem>
     </Grid>
     </>
