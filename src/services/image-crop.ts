@@ -1,6 +1,6 @@
-import noImage from '@/assets/noImage2.png'
+import noImage from '@/assets/noImage.png'
 const getCropImage = (url:string)=>{
-    if (!url) return noImage;
+    if (!url) return (noImage.src);
 
     const target = 'media/';
     const index = url.indexOf(target) + target.length;
