@@ -7,7 +7,7 @@ import PlatformSelector from "@/components/PlatformSelector";
 import SortSelector from "@/components/SortSelector";
 import { Platforms } from "@/hooks/useGame";
 import { Geners } from "@/hooks/useGeners";
-import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 export interface GameQuery{
   gener:Geners|null,
