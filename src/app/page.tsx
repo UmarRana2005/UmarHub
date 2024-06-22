@@ -7,10 +7,12 @@ import { Platforms } from "@/hooks/useGame";
 import { Geners } from "@/hooks/useGeners";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
-
+export interface GameQuery{
+  gener:Geners|null,
+  platform:Platforms|null,
+}
 export default function Home() {
- const [selectedGener,setSelectedGener] =useState<Geners|null>(null)
- const [selectedPlatform,setSelectedPlatform] =useState<Platforms|null>(null)
+ const [gameQuery,setGameQuery] = useState<GameQuery>({} as GameQuery)
   return(
     <>
     <Grid templateAreas={{
@@ -27,12 +29,12 @@ export default function Home() {
         </GridItem>
       <Show above="lg">
       <GridItem area='aside' paddingX={4}>
-        <GenersList onSelectedGener={selectedGener} SelectedGener={(gener)=>setSelectedGener(gener)}/>
+        <GenersList onSelectedGener={gameQuery.gener} SelectedGener={(gener)=>setGameQuery({...gameQuery,gener})}/>
       </GridItem>
       </Show>
       <GridItem area='main'>
-        <PlatformSelector selectedPlatform={selectedPlatform} onSelectedPlatform={(platform)=> setSelectedPlatform(platform)} />
-        <GameGrid selectedPlatform={selectedPlatform} selectedGener={selectedGener}/>
+        <PlatformSelector selectedPlatform={gameQuery.platform} onSelectedPlatform={(platform)=> setGameQuery({...gameQuery,platform})} />
+        <GameGrid gameQuery={gameQuery}/>
       </GridItem>
     </Grid>
     </>
