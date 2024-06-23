@@ -16,7 +16,7 @@ const GenersList = ({SelectedGener,onSelectedGener}:Props) => {
         {data.map(gener=>
           <ListItem key={gener.id} paddingY={2}>
           <HStack>
-            <Image boxSize='32px' backgroundSize='cover' borderRadius={8} src={getCropImage(gener.image_background)}/>
+            <Image boxSize='32px' objectFit='cover' borderRadius={8} src={getCropImage(gener.image_background)}/>
             <Button whiteSpace='normal' textAlign='left' fontWeight={gener.id === onSelectedGener?.id ? 'bold':'normal'} variant='link' onClick={()=>SelectedGener(gener)} fontSize='lg'>{gener.name}</Button>
           </HStack>
           </ListItem>)}
