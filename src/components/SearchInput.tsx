@@ -12,7 +12,9 @@ const SearchInput = ({onSearch}:Props) => {
     if(ref.current) onSearch(ref.current.value)
    }}>
    <InputGroup>
-   <InputLeftElement children={<BsSearch/>}/>
+   <InputLeftElement>
+   <BsSearch/>
+   </InputLeftElement>
    <Input ref={ref} variant='filled' placeholder="Search Games...." borderRadius={20}/>
    </InputGroup>
    </form>
